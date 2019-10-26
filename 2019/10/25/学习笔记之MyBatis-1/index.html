@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>学习笔记之Mybatis-1 | NoviceMo&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NoviceMo,NoviceMo's Blog">
+  
+  <meta name="description" content="学习笔记之Mybatis-1思考：   Mybatis解决了什么问题？Mybatis的优点是？    Mybatis将SQL语句封装在配置文件中，降低了代码的耦合度。  减少代码量  增强移植性  基于SQL语法，简单易学 Mybatis的基本配置 全局配置文件：configuration.xml   123456789101112131415161718192021222324&amp;lt;?xml">
+<meta name="keywords" content="Mybatis,Java,框架,SSM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记之Mybatis-1">
+<meta property="og:url" content="/2019/10/25/学习笔记之MyBatis-1/index.html">
+<meta property="og:site_name" content="NoviceMo&#39;s Blog">
+<meta property="og:description" content="学习笔记之Mybatis-1思考：   Mybatis解决了什么问题？Mybatis的优点是？    Mybatis将SQL语句封装在配置文件中，降低了代码的耦合度。  减少代码量  增强移植性  基于SQL语法，简单易学 Mybatis的基本配置 全局配置文件：configuration.xml   123456789101112131415161718192021222324&amp;lt;?xml">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-25T12:17:00.731Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习笔记之Mybatis-1">
+<meta name="twitter:description" content="学习笔记之Mybatis-1思考：   Mybatis解决了什么问题？Mybatis的优点是？    Mybatis将SQL语句封装在配置文件中，降低了代码的耦合度。  减少代码量  增强移植性  基于SQL语法，简单易学 Mybatis的基本配置 全局配置文件：configuration.xml   123456789101112131415161718192021222324&amp;lt;?xml">
+  
+  
+    <link rel="icon" href="/favicon.icon">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NoviceMo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NoviceMo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个刚入门的博客小白
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/NoviceMo">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="QQ" target="_blank" href="tencent://message/?uin=577028748&Site=&Menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-学习笔记之MyBatis-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      学习笔记之Mybatis-1
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Mybatis/">Mybatis</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-10-25
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="学习笔记之Mybatis-1"><a href="#学习笔记之Mybatis-1" class="headerlink" title="学习笔记之Mybatis-1"></a><strong>学习笔记之Mybatis-1</strong></h2><h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>   <strong>Mybatis解决了什么问题？Mybatis的优点是？</strong>  </p>
+<ul>
+<li><p>Mybatis将SQL语句封装在配置文件中，降低了代码的耦合度。</p>
+</li>
+<li><p>减少代码量</p>
+</li>
+<li><p>增强移植性</p>
+</li>
+<li><p>基于SQL语法，简单易学</p>
+<h3 id="Mybatis的基本配置"><a href="#Mybatis的基本配置" class="headerlink" title="Mybatis的基本配置"></a><strong>Mybatis的基本配置</strong></h3></li>
+<li><p>全局配置文件：configuration.xml  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">     &lt;!DOCTYPE configuration</span><br><span class="line">     PUBLIC <span class="string">"-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line">     <span class="string">"http://mybatis.org/dtd/mybatis-3-config.dtd"</span>&gt;</span><br><span class="line">     &lt;configuration&gt; </span><br><span class="line"> &lt;environments <span class="keyword">default</span>=<span class="string">"mysql"</span>&gt;</span><br><span class="line">     &lt;!-- 配置mysql的环境--&gt;</span><br><span class="line">     &lt;environment id=<span class="string">"mysql"</span>&gt;</span><br><span class="line">         &lt;!-- 配置事务的类型--&gt;</span><br><span class="line">         &lt;transactionManager type="JDBC"&gt;&lt;/transactionManager&gt;</span><br><span class="line">         &lt;!-- 配置数据源（连接池） --&gt;</span><br><span class="line">         &lt;dataSource type=<span class="string">"POOLED"</span>&gt;</span><br><span class="line">             &lt;!-- 配置连接数据库的<span class="number">4</span>个基本信息 --&gt;</span><br><span class="line">             &lt;property name=<span class="string">"driver"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span><br><span class="line">             &lt;property name=<span class="string">"url"</span>                             value=<span class="string">"jdbc:mysql://localhost:3306/eesy_mybatis"</span>/&gt;</span><br><span class="line">             &lt;property name=<span class="string">"username"</span> value=<span class="string">"root"</span>/&gt;</span><br><span class="line">             &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span>/&gt;</span><br><span class="line">         &lt;/dataSource&gt;</span><br><span class="line">     &lt;/environment&gt;</span><br><span class="line"> &lt;/environments&gt;</span><br><span class="line"> &lt;mappers&gt;</span><br><span class="line"> &lt;mapper resource=<span class="string">"com/novicemo/dao/UserDao.xml"</span>/&gt;<span class="comment">//指定核心映射文件的位置</span></span><br><span class="line"> &lt;/mappers&gt;</span><br><span class="line">     &lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>核心映射文件：mapper.xml   </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   &lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">        PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">        <span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;mapper namespace=<span class="string">"com.novicemo.dao.UserDao"</span>&gt;<span class="comment">//dao接口</span></span><br><span class="line">&lt;select id=<span class="string">"findAll"</span> resultType=<span class="string">"User"</span>&gt;</span><br><span class="line">select * from user</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="configuration-xml中的配置"><a href="#configuration-xml中的配置" class="headerlink" title="configuration.xml中的配置"></a><strong>configuration.xml中的配置</strong></h2><ul>
+<li><strong>别名配置：typeAliases</strong>    存在的意义：减少全限定类名的冗余<br>配置代码如下：   <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;typeAliases&gt;</span><br><span class="line">    &lt;typeAlias alias=<span class="string">"user"</span>  type=<span class="string">"com.novicemo.domain.User"</span>&gt;</span><br><span class="line">&lt;/typeAliases&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>数据源配置：dataSource</strong><br>有三种：<br>POOLED：与JDBC中数据库的池差不多，减少创建连接的时间<br>UNPOOLED：没有数据库池，每次操作数据库都需要创建新的连接，性能差<br>JNDI：不太了解  </p>
+</li>
+<li><p><strong>属性配置：properties</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">  &lt;properties name=<span class="string">"driver"</span> value=<span class="string">"com.mysql.jdbc.driver"</span> /&gt;</span><br><span class="line">  &lt;properties name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql://localhost:3306/eesy_mybatis"</span>/&gt;</span><br><span class="line">  &lt;properties name=<span class="string">"username"</span> value=<span class="string">"root"</span>/&gt;</span><br><span class="line">  &lt;properties name=<span class="string">"password"</span> value=<span class="string">"root"</span>/&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+<p>配置了properties可以在下面的数据库配置中用${name}的方式使用</p>
+</li>
+<li><p><strong>Setting配置 配置二级缓存</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"cacheEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">       &lt;setting name=<span class="string">"lazyLoadingEnabled"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="核心映射文件：mapper-xml中的配置"><a href="#核心映射文件：mapper-xml中的配置" class="headerlink" title="核心映射文件：mapper.xml中的配置"></a>核心映射文件：mapper.xml中的配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//必须配置，映射文件的唯一标识，避免下方select,insert等配置的id和其他映射文件重复 </span></span><br><span class="line">        &lt;mapper namespace=<span class="string">"com.novicemo.dao.UserDao"</span> /&gt;</span><br><span class="line">   ```  </span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">  &lt;cache/&gt;<span class="comment">//二级缓存必须配置</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询Sql配置</span></span><br><span class="line">&lt;select id=<span class="string">"findAll"</span> resultType=<span class="string">"user"</span> useCache=<span class="string">"true"</span>&gt;<span class="comment">//id为方法名，resultType为返回类型,userCache设置为true，开启二级缓存</span></span><br><span class="line">select * from user</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"><span class="comment">//插入Sql配置</span></span><br><span class="line">&lt;insert id=<span class="string">"insertUser"</span> parameterType=<span class="string">"user"</span>&gt;<span class="comment">//paraterType为参数类型，由于在全局配置文件中配置了别名，可以不用写全限定类名</span></span><br><span class="line"><span class="function">insert from <span class="title">user</span> <span class="params">(username,address)</span> <span class="title">values</span><span class="params">(#&#123;username&#125;,#&#123;address&#125;)</span></span></span><br><span class="line"><span class="function">&lt;/insert&gt;</span></span><br><span class="line"><span class="function"><span class="comment">//删除Sql配置</span></span></span><br><span class="line"><span class="function">&lt;delete id</span>=<span class="string">"deleteUser"</span> parameterType=<span class="string">"java.lang.Integer"</span>&gt;</span><br><span class="line">delete from user where id = #&#123;id&#125;</span><br><span class="line">&lt;/delete&gt;</span><br><span class="line"><span class="comment">//跟新Sql配置</span></span><br><span class="line">&lt;update id=<span class="string">"updateUser"</span> parameterType=<span class="string">"user"</span>&gt; </span><br><span class="line">update user set username=#&#123;username&#125;,address=#&#123;address&#125;</span><br><span class="line">&lt;/update&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单理解一级缓存和二级缓存"><a href="#简单理解一级缓存和二级缓存" class="headerlink" title="简单理解一级缓存和二级缓存"></a><strong>简单理解一级缓存和二级缓存</strong></h2><ul>
+<li><strong>一级缓存</strong><br>SqlSession级别的缓存，只要SqlSession不关闭和flush缓存就存在。</li>
+<li><strong>二级缓存</strong><br>SqlSessionFactory级别的缓存，只要是同一个SqlSessionFactory生产的SqlSession都可以公用缓存<br>它是用key/value的方式存储数据的，如果执行两次根据id查询user的Sql,返回的user对象不是同一个</li>
+</ul>
+</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年10月25日 20:17</p>
+        <p>原始链接： <a class="post-url" href="/2019/10/25/学习笔记之MyBatis-1/" title="学习笔记之Mybatis-1">/2019/10/25/学习笔记之MyBatis-1/</a></p>
+        <footer>
+            <a href="">
+                <img src="/images/logo.png" alt="NoviceMo">
+                NoviceMo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2019/10/25/学习笔记之MyBatis-1/&title=《学习笔记之Mybatis-1》 — NoviceMo's Blog&pic=images/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2019/10/25/学习笔记之MyBatis-1/&title=《学习笔记之Mybatis-1》 — NoviceMo's Blog&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2019/10/25/学习笔记之MyBatis-1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习笔记之Mybatis-1》 — NoviceMo's Blog&url=/2019/10/25/学习笔记之MyBatis-1/&via=" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2019/10/25/学习笔记之MyBatis-1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=/2019/10/25/学习笔记之MyBatis-1/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Mybatis/" class="color3">Mybatis</a>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+    <a href="/tags/框架/" class="color3">框架</a>
+      
+    <a href="/tags/SSM/" class="color4">SSM</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习笔记之Mybatis-1"><span class="post-toc-text">学习笔记之Mybatis-1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思考："><span class="post-toc-text">思考：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mybatis的基本配置"><span class="post-toc-text">Mybatis的基本配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#configuration-xml中的配置"><span class="post-toc-text">configuration.xml中的配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#核心映射文件：mapper-xml中的配置"><span class="post-toc-text">核心映射文件：mapper.xml中的配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单理解一级缓存和二级缓存"><span class="post-toc-text">简单理解一级缓存和二级缓存</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/07/my-first-blog-articles/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">my first blog articles</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2019 NoviceMo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/First/">First</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mybatis/">Mybatis</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

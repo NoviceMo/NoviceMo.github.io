@@ -3,22 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>NoviceMo&#39;s Blog</title>
+  <title>学习笔记之Mybatis动态sql语句 | NoviceMo&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="NoviceMo,NoviceMo's Blog">
   
-  <meta name="description" content="title: 学习笔记之Mybatis-1date: 2019-11-02categories: Mybatisauthor: novicemotags:    - Mybatis    - Java    - 框架    - SSM  Mybatis动态SQL在多条件组合查询的时候可以拼接sql语句 if语句    123456789101112131415161718192021222324">
+  <meta name="description" content="Mybatis动态SQL    在多条件组合查询的时候可以拼接sql语句  if语句    &amp;lt;select id=&quot;findByUser&quot; resultType=&quot;user&quot; parameterType=&quot;user&quot;&amp;gt; select * from user where 1=1 &amp;lt;if test=&quot;username!=null and username != &apos;&apos; &quot;&amp;gt; an">
+<meta name="keywords" content="Java,Maven,框架,SSM,Mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NoviceMo&#39;s Blog">
+<meta property="og:title" content="学习笔记之Mybatis动态sql语句">
 <meta property="og:url" content="/2019/11/02/学习笔记之Mybatis动态语句/index.html">
 <meta property="og:site_name" content="NoviceMo&#39;s Blog">
-<meta property="og:description" content="title: 学习笔记之Mybatis-1date: 2019-11-02categories: Mybatisauthor: novicemotags:    - Mybatis    - Java    - 框架    - SSM  Mybatis动态SQL在多条件组合查询的时候可以拼接sql语句 if语句    123456789101112131415161718192021222324">
+<meta property="og:description" content="Mybatis动态SQL    在多条件组合查询的时候可以拼接sql语句  if语句    &amp;lt;select id=&quot;findByUser&quot; resultType=&quot;user&quot; parameterType=&quot;user&quot;&amp;gt; select * from user where 1=1 &amp;lt;if test=&quot;username!=null and username != &apos;&apos; &quot;&amp;gt; an">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-02T09:14:03.341Z">
+<meta property="og:updated_time" content="2019-11-02T09:30:52.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NoviceMo&#39;s Blog">
-<meta name="twitter:description" content="title: 学习笔记之Mybatis-1date: 2019-11-02categories: Mybatisauthor: novicemotags:    - Mybatis    - Java    - 框架    - SSM  Mybatis动态SQL在多条件组合查询的时候可以拼接sql语句 if语句    123456789101112131415161718192021222324">
+<meta name="twitter:title" content="学习笔记之Mybatis动态sql语句">
+<meta name="twitter:description" content="Mybatis动态SQL    在多条件组合查询的时候可以拼接sql语句  if语句    &amp;lt;select id=&quot;findByUser&quot; resultType=&quot;user&quot; parameterType=&quot;user&quot;&amp;gt; select * from user where 1=1 &amp;lt;if test=&quot;username!=null and username != &apos;&apos; &quot;&amp;gt; an">
   
   
     <link rel="icon" href="/favicon.icon">
@@ -106,33 +107,96 @@
         <section id="main" class="body-wrap"><article id="post-学习笔记之Mybatis动态语句" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      学习笔记之Mybatis动态sql语句
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Java/">Java</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-11-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <hr>
-<p>title: 学习笔记之Mybatis-1<br>date: 2019-11-02<br>categories: Mybatis<br>author: novicemo<br>tags:<br>    - Mybatis<br>    - Java<br>    - 框架<br>    - SSM</p>
-<hr>
-<h1 id="Mybatis动态SQL"><a href="#Mybatis动态SQL" class="headerlink" title="Mybatis动态SQL"></a><strong>Mybatis动态SQL</strong></h1><pre><code>在多条件组合查询的时候可以拼接sql语句</code></pre><ul>
+            <h1 id="Mybatis动态SQL"><a href="#Mybatis动态SQL" class="headerlink" title="Mybatis动态SQL"></a><strong>Mybatis动态SQL</strong></h1><p><font face="微软雅黑" color="#0099ff">    在多条件组合查询的时候可以拼接sql语句<br></font></p>
+<ul>
 <li><strong>if语句</strong>  </li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"findByUser"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"user"</span>&gt;</span><br><span class="line">select * from user where <span class="number">1</span>=<span class="number">1</span></span><br><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"username!=null and username != '' "</span>&gt;</span><br><span class="line">and username like #&#123;username&#125;</span><br><span class="line">&lt;/if&gt;</span><br><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"address != null"</span>&gt;</span><br><span class="line">and address like #&#123;address&#125;</span><br><span class="line">&lt;/if&gt;</span><br><span class="line">&lt;/select&gt; </span><br><span class="line">```  </span><br><span class="line">    test为判断条件，满足条件就会在原有的sql语句拼接上<span class="keyword">if</span>标签中的条件语句  </span><br><span class="line">    为避免出现select * from user and username like #&#123;username&#125;的错误语句，在后面加上where 1=1；</span><br><span class="line"></span><br><span class="line">+  **where语句**  </span><br><span class="line">```java</span><br><span class="line">&lt;select id=<span class="string">"findByUser"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"user"</span>&gt;</span><br><span class="line">&lt;include refid="defaultSql"&gt;&lt;/include&gt;</span><br><span class="line">&lt;where&gt;</span><br><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"username!=null and username != '' "</span>&gt;</span><br><span class="line">and username like #&#123;username&#125;</span><br><span class="line">&lt;/if&gt;</span><br><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"address != null"</span>&gt;</span><br><span class="line">and address like #&#123;address&#125;</span><br><span class="line">&lt;/if&gt;</span><br><span class="line">&lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">&lt;select id=<span class="string">"findByUser"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"user"</span>&gt;
+select * <span class="keyword">from</span> user where <span class="number">1</span>=<span class="number">1</span>
+&lt;<span class="keyword">if</span> test=<span class="string">"username!=null and username != '' "</span>&gt;
+and username like #{username}
+&lt;<span class="regexp">/if&gt;</span>
+<span class="regexp">&lt;if test="address != null"&gt;</span>
+<span class="regexp">and address like #{address}</span>
+<span class="regexp">&lt;/i</span>f&gt;
+&lt;<span class="regexp">/select&gt; </span></code></pre>
+<p><font face="微软雅黑" color="#0099ff">    test为判断条件，满足条件就会在原有的sql语句拼接上if标签中的条件语句<br>    为避免出现select * from user and username like #{username}的错误语句，在后面加上where 1=1；</font></p>
 
-<pre><code>where语句嵌套if语句，区别在于不需要加上where 1=1，和if语句加上where1=1的功能一致  </code></pre><ul>
-<li><p><strong>foreach语句</strong>   </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">"findInIds"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"queryvo"</span>&gt;</span><br><span class="line">&lt;!-- select * <span class="function">from user where id <span class="title">in</span> <span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span></span>; --&gt;</span><br><span class="line">&lt;include refid="defaultSql"&gt;&lt;/include&gt;</span><br><span class="line">&lt;where&gt;</span><br><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"ids != null and ids.size() &gt; 0"</span>&gt;</span><br><span class="line">&lt;foreach collection=<span class="string">"ids"</span> open=<span class="string">"id in ( "</span> close=<span class="string">")"</span> item=<span class="string">"uid"</span></span><br><span class="line">separator=<span class="string">","</span>&gt;</span><br><span class="line">#&#123;uid&#125;</span><br><span class="line">&lt;/foreach&gt;</span><br><span class="line">&lt;/if&gt;</span><br><span class="line">&lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 
-<pre><code>foreach语句和if、where语句一起使用，当满足if中的条件时，遍历conllection中的ids，
-首先将open中的字符串和遍历语句之前的sql拼接，
-然后开始遍历，item为ids中遍历的元素，
-#{uid}将uid拼接上sql语句，
-separator中的&quot;,&quot;表示每个uid用该符号分隔开，
-close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql语句完整</code></pre></li>
+<ul>
+<li><strong>where语句</strong>  <pre><code class="javascript">&lt;select id=<span class="string">"findByUser"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"user"</span>&gt;
+&lt;include refid=<span class="string">"defaultSql"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">include</span>&gt;</span></span>
+&lt;where&gt;
+&lt;<span class="keyword">if</span> test=<span class="string">"username!=null and username != '' "</span>&gt;
+and username like #{username}
+&lt;<span class="regexp">/if&gt;</span>
+<span class="regexp">&lt;if test="address != null"&gt;</span>
+<span class="regexp">and address like #{address}</span>
+<span class="regexp">&lt;/i</span>f&gt;
+&lt;<span class="regexp">/where&gt;</span>
+<span class="regexp">&lt;/</span>select&gt;</code></pre>
+<font face="微软雅黑" color="#0099ff">       where语句嵌套if语句，区别在于不需要加上where 1=1，和if语句加上where1=1的功能一致  </font></li>
+<li><strong>foreach语句</strong>     <pre><code class="javascript">&lt;select id=<span class="string">"findInIds"</span> resultType=<span class="string">"user"</span> parameterType=<span class="string">"queryvo"</span>&gt;
+&lt;!-- select * <span class="keyword">from</span> user where id <span class="keyword">in</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>); --&gt;
+&lt;include refid=<span class="string">"defaultSql"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">include</span>&gt;</span></span>
+&lt;where&gt;
+&lt;<span class="keyword">if</span> test=<span class="string">"ids != null and ids.size() &gt; 0"</span>&gt;
+&lt;foreach collection=<span class="string">"ids"</span> open=<span class="string">"id in ( "</span> close=<span class="string">")"</span> item=<span class="string">"uid"</span>
+separator=<span class="string">","</span>&gt;
+#{uid}
+&lt;<span class="regexp">/foreach&gt;</span>
+<span class="regexp">&lt;/i</span>f&gt;
+&lt;<span class="regexp">/where&gt;</span>
+<span class="regexp">&lt;/</span>select&gt;</code></pre>
+<font face="微软雅黑" color="#0099ff"> 
+  foreach语句和if、where语句一起使用, 
+  当满足if中的条件时，遍历conllection中的ids，   
+  首先将open中的字符串和遍历语句之前的sql拼接，  
+  然后开始遍历，item为ids中遍历的元素，  
+  #{uid}将uid拼接上sql语句，
+  separator中的","表示每个uid用该符号分隔开，
+  close的")"表示是最后一个元素，将括号拼接上，使sql语句完整
+</font>
+</li>
 </ul>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年11月02日 17:14</p>
-        <p>原始链接： <a class="post-url" href="/2019/11/02/学习笔记之Mybatis动态语句/" title="">/2019/11/02/学习笔记之Mybatis动态语句/</a></p>
+        <p>最后更新： 2019年11月02日 17:30</p>
+        <p>原始链接： <a class="post-url" href="/2019/11/02/学习笔记之Mybatis动态语句/" title="学习笔记之Mybatis动态sql语句">/2019/11/02/学习笔记之Mybatis动态语句/</a></p>
         <footer>
             <a href="">
                 <img src="/images/logo.png" alt="NoviceMo">
@@ -189,7 +253,7 @@ close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql�
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2019/11/02/学习笔记之Mybatis动态语句/&title=NoviceMo's Blog&pic=images/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2019/11/02/学习笔记之Mybatis动态语句/&title=《学习笔记之Mybatis动态sql语句》 — NoviceMo's Blog&pic=images/cover.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -199,7 +263,7 @@ close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql�
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2019/11/02/学习笔记之Mybatis动态语句/&title=NoviceMo's Blog&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2019/11/02/学习笔记之Mybatis动态语句/&title=《学习笔记之Mybatis动态sql语句》 — NoviceMo's Blog&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -209,7 +273,7 @@ close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql�
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=NoviceMo's Blog&url=/2019/11/02/学习笔记之Mybatis动态语句/&via=" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《学习笔记之Mybatis动态sql语句》 — NoviceMo's Blog&url=/2019/11/02/学习笔记之Mybatis动态语句/&via=" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -233,6 +297,21 @@ close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql�
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+    <a href="/tags/Maven/" class="color1">Maven</a>
+      
+    <a href="/tags/框架/" class="color3">框架</a>
+      
+    <a href="/tags/SSM/" class="color4">SSM</a>
+      
+    <a href="/tags/Mybatis/" class="color3">Mybatis</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -316,7 +395,7 @@ close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql�
             <a class="category-link" href="/categories/First/">First</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mybatis/">Mybatis</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+            <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -349,7 +428,7 @@ close的&quot;)&quot;表示是最后一个元素，将括号拼接上，使sql�
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+            <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a>
         </div>
     </div>
 </div>

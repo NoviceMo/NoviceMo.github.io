@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>my first blog articles | NoviceMo&#39;s Blog</title>
+  <title>maven-私服 | NoviceMo&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="NoviceMo,NoviceMo's Blog">
   
-  <meta name="description" content="第一章内容  第二章内容  参考文献www.codesheep.cn">
-<meta name="keywords" content="Java,Maven">
+  <meta name="description" content="将模块或项目发布到私服 在maven的settings中配置 12345678910&amp;lt;server&amp;gt;&amp;lt;id&amp;gt;releases&amp;lt;/id&amp;gt;&amp;lt;username&amp;gt;admin&amp;lt;/username&amp;gt;&amp;lt;password&amp;gt;admin123&amp;lt;/password&amp;gt;&amp;lt;/server&amp;gt;&amp;lt;server&amp;gt;&amp;lt;id&amp;">
+<meta name="keywords" content="maven">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my first blog articles">
-<meta property="og:url" content="/2019/10/07/my-first-blog-articles/index.html">
+<meta property="og:title" content="maven-私服">
+<meta property="og:url" content="/2019/11/20/maven-私服/index.html">
 <meta property="og:site_name" content="NoviceMo&#39;s Blog">
-<meta property="og:description" content="第一章内容  第二章内容  参考文献www.codesheep.cn">
+<meta property="og:description" content="将模块或项目发布到私服 在maven的settings中配置 12345678910&amp;lt;server&amp;gt;&amp;lt;id&amp;gt;releases&amp;lt;/id&amp;gt;&amp;lt;username&amp;gt;admin&amp;lt;/username&amp;gt;&amp;lt;password&amp;gt;admin123&amp;lt;/password&amp;gt;&amp;lt;/server&amp;gt;&amp;lt;server&amp;gt;&amp;lt;id&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-19T11:18:34.446Z">
+<meta property="og:updated_time" content="2019-11-20T12:23:45.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my first blog articles">
-<meta name="twitter:description" content="第一章内容  第二章内容  参考文献www.codesheep.cn">
+<meta name="twitter:title" content="maven-私服">
+<meta name="twitter:description" content="将模块或项目发布到私服 在maven的settings中配置 12345678910&amp;lt;server&amp;gt;&amp;lt;id&amp;gt;releases&amp;lt;/id&amp;gt;&amp;lt;username&amp;gt;admin&amp;lt;/username&amp;gt;&amp;lt;password&amp;gt;admin123&amp;lt;/password&amp;gt;&amp;lt;/server&amp;gt;&amp;lt;server&amp;gt;&amp;lt;id&amp;">
   
   
     <link rel="icon" href="/favicon.icon">
@@ -104,14 +104,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-my-first-blog-articles" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-maven-私服" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      my first blog articles
+      maven-私服
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -119,12 +119,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/Java/">Java</a>
+                      <a href="/categories/maven/">maven</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2019-10-07
+          <i class="fa fa-calendar"></i>  2019-11-20
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -140,16 +140,47 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.codesheep.cn" target="_blank" rel="noopener">www.codesheep.cn</a></p>
+            <h2 id="将模块或项目发布到私服"><a href="#将模块或项目发布到私服" class="headerlink" title="将模块或项目发布到私服"></a>将模块或项目发布到私服</h2><ul>
+<li><p>在maven的settings中配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;server&gt;</span><br><span class="line">&lt;id&gt;releases&lt;/id&gt;</span><br><span class="line">&lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">&lt;password&gt;admin123&lt;/password&gt;</span><br><span class="line">&lt;/server&gt;</span><br><span class="line">&lt;server&gt;</span><br><span class="line">&lt;id&gt;snapshots&lt;/id&gt;</span><br><span class="line">&lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">&lt;password&gt;admin123&lt;/password&gt;</span><br><span class="line">&lt;/server&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置项目pom.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">&lt;repository&gt;</span><br><span class="line">&lt;id&gt;releases&lt;/id&gt;</span><br><span class="line">&lt;url&gt;http:<span class="comment">//localhost:8081/nexus/content/repositories/releases/&lt;/url&gt;</span></span><br><span class="line">&lt;/repository&gt;</span><br><span class="line">&lt;snapshotRepository&gt;</span><br><span class="line">&lt;id&gt;snapshots&lt;/id&gt;</span><br><span class="line">&lt;url&gt;http:<span class="comment">//localhost:8081/nexus/content/repositories/snapshots/&lt;/url&gt;</span></span><br><span class="line">&lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>配置好后，对项目执行deploy命令即可发布  </p>
+<h2 id="从私服下载jar包"><a href="#从私服下载jar包" class="headerlink" title="从私服下载jar包"></a>从私服下载jar包</h2><ul>
+<li>在maven的settings中配置<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;profile&gt; </span><br><span class="line">		&lt;!--profile的id --&gt;</span><br><span class="line">		&lt;id&gt;dev&lt;/id&gt;</span><br><span class="line">		&lt;repositories&gt;</span><br><span class="line">			&lt;repository&gt; &lt;!--仓库id，repositories可以配置多个仓库，保证id不重复 --&gt;</span><br><span class="line">				&lt;id&gt;nexus&lt;/id&gt; &lt;!--仓库地址，即nexus仓库组的地址 --&gt;</span><br><span class="line">				&lt;url&gt;http:<span class="comment">//localhost:8081/nexus/content/groups/public/&lt;/url&gt; &lt;!--是否下载releases构件 --&gt;</span></span><br><span class="line">				&lt;releases&gt;</span><br><span class="line">					&lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">				&lt;/releases&gt; &lt;!--是否下载snapshots构件 --&gt;</span><br><span class="line">				&lt;snapshots&gt;</span><br><span class="line">					&lt;enabled&gt;true&lt;/enabled&gt;</span><br><span class="line">				&lt;/snapshots&gt;</span><br><span class="line">			&lt;/repository&gt;</span><br><span class="line">		&lt;/repositories&gt;</span><br><span class="line">		&lt;pluginRepositories&gt; &lt;!-- 插件仓库，maven的运行依赖插件，也需要从私服下载插件 --&gt;</span><br><span class="line">			&lt;pluginRepository&gt; &lt;!-- 插件仓库的id不允许重复，如果重复后边配置会覆盖前边 --&gt;</span><br><span class="line">				&lt;id&gt;public&lt;/id&gt;</span><br><span class="line">				&lt;name&gt;Public Repositories&lt;/name&gt;</span><br><span class="line">				&lt;url&gt;http:<span class="comment">//localhost:8081/nexus/content/groups/public/&lt;/url&gt;</span></span><br><span class="line">			&lt;/pluginRepository&gt;</span><br><span class="line">		&lt;/pluginRepositories&gt;</span><br><span class="line">	&lt;/profile&gt;</span><br><span class="line"></span><br><span class="line">	&lt;activeProfiles&gt;</span><br><span class="line">		&lt;activeProfile&gt;dev&lt;/activeProfile&gt;</span><br><span class="line">	&lt;/activeProfiles&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="把第三方jar包放入本地仓库或私服"><a href="#把第三方jar包放入本地仓库或私服" class="headerlink" title="把第三方jar包放入本地仓库或私服"></a>把第三方jar包放入本地仓库或私服</h2><ul>
+<li>导入本地仓库  </li>
+</ul>
+<p>—-进入jar包所在目录运行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=<span class="number">1.1</span>.37 -Dfile=fastjson-<span class="number">1.1</span>.37.jar -Dpackaging=jar</span><br></pre></td></tr></table></figure>
+
+<p>—-打开cmd直接运行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=<span class="number">1.1</span>.37 -Dpackaging=jar -Dfile=C:\my_java\授课资料\资料：maven【高级】\安装第三方jar包\fastjson-<span class="number">1.1</span>.37.jar</span><br></pre></td></tr></table></figure>
+
+<p>Dfile为jar包所在位置</p>
+<ul>
+<li>导入私服<br>在maven的settings中配置<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;server&gt;</span><br><span class="line">&lt;id&gt;thirdparty&lt;/id&gt;</span><br><span class="line">&lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">&lt;password&gt;admin123&lt;/password&gt;</span><br><span class="line">&lt;/server&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>—-进入jar包所在目录运行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=<span class="number">1.1</span>.37 -Dpackaging=jar -Dfile=fastjson-<span class="number">1.1</span>.37.jar -Durl=http:<span class="comment">//localhost:8081/nexus/content/repositories/thirdparty/ -DrepositoryId=thirdparty</span></span><br></pre></td></tr></table></figure>
+
+<p>—-打开cmd直接运行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn deploy:deploy-file -DgroupId=com.alibaba -DartifactId=fastjson -Dversion=<span class="number">1.1</span>.37 -Dpackaging=jar -Dfile=C:\my_java\授课资料\资料：maven【高级】\安装第三方jar包\fastjson-<span class="number">1.1</span>.37.jar -Durl=http:<span class="comment">//localhost:8081/nexus/content/repositories/thirdparty/ -DrepositoryId=thirdparty</span></span><br></pre></td></tr></table></figure>
+
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年10月19日 19:18</p>
-        <p>原始链接： <a class="post-url" href="/2019/10/07/my-first-blog-articles/" title="my first blog articles">/2019/10/07/my-first-blog-articles/</a></p>
+        <p>最后更新： 2019年11月20日 20:23</p>
+        <p>原始链接： <a class="post-url" href="/2019/11/20/maven-私服/" title="maven-私服">/2019/11/20/maven-私服/</a></p>
         <footer>
             <a href="">
                 <img src="/images/logo.png" alt="NoviceMo">
@@ -206,7 +237,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2019/10/07/my-first-blog-articles/&title=《my first blog articles》 — NoviceMo's Blog&pic=images/cover.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2019/11/20/maven-私服/&title=《maven-私服》 — NoviceMo's Blog&pic=images/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -216,22 +247,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2019/10/07/my-first-blog-articles/&title=《my first blog articles》 — NoviceMo's Blog&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2019/11/20/maven-私服/&title=《maven-私服》 — NoviceMo's Blog&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2019/10/07/my-first-blog-articles/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2019/11/20/maven-私服/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《my first blog articles》 — NoviceMo's Blog&url=/2019/10/07/my-first-blog-articles/&via=" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven-私服》 — NoviceMo's Blog&url=/2019/11/20/maven-私服/&via=" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2019/10/07/my-first-blog-articles/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2019/11/20/maven-私服/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -241,7 +272,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=/2019/10/07/my-first-blog-articles/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=/2019/11/20/maven-私服/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -253,9 +284,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-    <a href="/tags/Maven/" class="color1">Maven</a>
+    <a href="/tags/maven/" class="color1">maven</a>
       
   </li>
 
@@ -268,26 +297,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一章"><span class="post-toc-text">第一章</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二章"><span class="post-toc-text">第二章</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文献"><span class="post-toc-text">参考文献</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将模块或项目发布到私服"><span class="post-toc-text">将模块或项目发布到私服</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从私服下载jar包"><span class="post-toc-text">从私服下载jar包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#把第三方jar包放入本地仓库或私服"><span class="post-toc-text">把第三方jar包放入本地仓库或私服</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2019/10/25/学习笔记之MyBatis-1/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          学习笔记之Mybatis-1
-        
-      </span>
-    </a>
   
-  
-    <a href="/2017/06/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Hello World</span>
+    <a href="/2019/11/20/无法编译jsp问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">无法编译jsp问题</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

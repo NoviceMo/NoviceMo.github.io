@@ -3,22 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>NoviceMo&#39;s Blog</title>
+  <title>spring-security总结 | NoviceMo&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="NoviceMo,NoviceMo's Blog">
   
-  <meta name="description" content="title: spring-security使用总结date: 2020-10-15categories: spring-securityauthor: NoviceMotags:    -spring-securitycover_picture: images/banner.jpg  spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创">
+  <meta name="description" content="spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创建spring-security.xml文件，编写相关代码 在web.xml中配置过滤器：DelegatingFilterProxy，配置监听器加载spring-security.xml文件。（一般和ApplicationContext.xml使用同一个监听器加载）  spring-sec">
+<meta name="keywords" content="-spring-security">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NoviceMo&#39;s Blog">
+<meta property="og:title" content="spring-security总结">
 <meta property="og:url" content="/2020/10/15/spring-security/index.html">
 <meta property="og:site_name" content="NoviceMo&#39;s Blog">
-<meta property="og:description" content="title: spring-security使用总结date: 2020-10-15categories: spring-securityauthor: NoviceMotags:    -spring-securitycover_picture: images/banner.jpg  spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创">
+<meta property="og:description" content="spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创建spring-security.xml文件，编写相关代码 在web.xml中配置过滤器：DelegatingFilterProxy，配置监听器加载spring-security.xml文件。（一般和ApplicationContext.xml使用同一个监听器加载）  spring-sec">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-15T07:32:28.297Z">
+<meta property="og:updated_time" content="2020-10-15T13:41:59.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NoviceMo&#39;s Blog">
-<meta name="twitter:description" content="title: spring-security使用总结date: 2020-10-15categories: spring-securityauthor: NoviceMotags:    -spring-securitycover_picture: images/banner.jpg  spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创">
+<meta name="twitter:title" content="spring-security总结">
+<meta name="twitter:description" content="spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创建spring-security.xml文件，编写相关代码 在web.xml中配置过滤器：DelegatingFilterProxy，配置监听器加载spring-security.xml文件。（一般和ApplicationContext.xml使用同一个监听器加载）  spring-sec">
   
   
     <link rel="icon" href="/favicon.icon">
@@ -106,13 +107,40 @@
         <section id="main" class="body-wrap"><article id="post-spring-security" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      spring-security总结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/spring-security/">spring-security</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-10-15
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <hr>
-<p>title: spring-security使用总结<br>date: 2020-10-15<br>categories: spring-security<br>author: NoviceMo<br>tags:<br>    -spring-security<br>cover_picture: images/banner.jpg</p>
-<hr>
-<h1 id="spring-security使用总结"><a href="#spring-security使用总结" class="headerlink" title="spring-security使用总结"></a>spring-security使用总结</h1><h2 id="spring-security的使用步骤："><a href="#spring-security的使用步骤：" class="headerlink" title="spring-security的使用步骤："></a>spring-security的使用步骤：</h2><ol>
+            <h1 id="spring-security使用总结"><a href="#spring-security使用总结" class="headerlink" title="spring-security使用总结"></a>spring-security使用总结</h1><h2 id="spring-security的使用步骤："><a href="#spring-security的使用步骤：" class="headerlink" title="spring-security的使用步骤："></a>spring-security的使用步骤：</h2><ol>
 <li>导入相关的maven依赖</li>
 <li>创建spring-security.xml文件，编写相关代码</li>
 <li>在web.xml中配置过滤器：DelegatingFilterProxy，配置监听器加载spring-security.xml文件。（一般和ApplicationContext.xml使用同一个监听器加载）</li>
@@ -177,8 +205,8 @@
     &lt;/p&gt;</code></pre>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年10月15日 15:32</p>
-        <p>原始链接： <a class="post-url" href="/2020/10/15/spring-security/" title="">/2020/10/15/spring-security/</a></p>
+        <p>最后更新： 2020年10月15日 21:41</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/15/spring-security/" title="spring-security总结">/2020/10/15/spring-security/</a></p>
         <footer>
             <a href="">
                 <img src="/images/logo.png" alt="NoviceMo">
@@ -235,7 +263,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2020/10/15/spring-security/&title=NoviceMo's Blog&pic=images/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2020/10/15/spring-security/&title=《spring-security总结》 — NoviceMo's Blog&pic=images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -245,7 +273,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2020/10/15/spring-security/&title=NoviceMo's Blog&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2020/10/15/spring-security/&title=《spring-security总结》 — NoviceMo's Blog&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -255,7 +283,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=NoviceMo's Blog&url=/2020/10/15/spring-security/&via=" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《spring-security总结》 — NoviceMo's Blog&url=/2020/10/15/spring-security/&via=" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -279,6 +307,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/-spring-security/" class="color2">-spring-security</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -359,10 +394,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/First/">First</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mybatis/">Mybatis</a><a class="category-link" href="/categories/el/">el</a><a class="category-link" href="/categories/jsp/">jsp</a><a class="category-link" href="/categories/maven/">maven</a><a class="category-link" href="/categories/mybatis/">mybatis</a><a class="category-link" href="/categories/springmvc/">springmvc</a><a class="category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="category-link" href="/categories/计算机服务/">计算机服务</a><a class="category-link" href="/categories/面向切面编程/">面向切面编程</a>
+            <a class="category-link" href="/categories/First/">First</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mybatis/">Mybatis</a><a class="category-link" href="/categories/el/">el</a><a class="category-link" href="/categories/jsp/">jsp</a><a class="category-link" href="/categories/maven/">maven</a><a class="category-link" href="/categories/mybatis/">mybatis</a><a class="category-link" href="/categories/spring-security/">spring-security</a><a class="category-link" href="/categories/springmvc/">springmvc</a><a class="category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="category-link" href="/categories/计算机服务/">计算机服务</a><a class="category-link" href="/categories/面向切面编程/">面向切面编程</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/mybatis-动态sql/" style="font-size: 10px;">-mybatis -动态sql</a> <a href="/tags/springmvc/" style="font-size: 10px;">-springmvc</a> <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/计算机服务/" style="font-size: 10px;">计算机服务</a> <a href="/tags/面向切面编程/" style="font-size: 10px;">面向切面编程</a>
+            <a href="/tags/mybatis-动态sql/" style="font-size: 10px;">-mybatis -动态sql</a> <a href="/tags/spring-security/" style="font-size: 10px;">-spring-security</a> <a href="/tags/springmvc/" style="font-size: 10px;">-springmvc</a> <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/计算机服务/" style="font-size: 10px;">计算机服务</a> <a href="/tags/面向切面编程/" style="font-size: 10px;">面向切面编程</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -395,7 +430,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/mybatis-动态sql/" style="font-size: 10px;">-mybatis -动态sql</a> <a href="/tags/springmvc/" style="font-size: 10px;">-springmvc</a> <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/计算机服务/" style="font-size: 10px;">计算机服务</a> <a href="/tags/面向切面编程/" style="font-size: 10px;">面向切面编程</a>
+            <a href="/tags/mybatis-动态sql/" style="font-size: 10px;">-mybatis -动态sql</a> <a href="/tags/spring-security/" style="font-size: 10px;">-spring-security</a> <a href="/tags/springmvc/" style="font-size: 10px;">-springmvc</a> <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/计算机服务/" style="font-size: 10px;">计算机服务</a> <a href="/tags/面向切面编程/" style="font-size: 10px;">面向切面编程</a>
         </div>
     </div>
 </div>

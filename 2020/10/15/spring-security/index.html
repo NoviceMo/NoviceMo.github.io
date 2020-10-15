@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>NoviceMo&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NoviceMo,NoviceMo's Blog">
+  
+  <meta name="description" content="title: spring-security使用总结date: 2020-10-15categories: spring-securityauthor: NoviceMotags:    -spring-securitycover_picture: images/banner.jpg  spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NoviceMo&#39;s Blog">
+<meta property="og:url" content="/2020/10/15/spring-security/index.html">
+<meta property="og:site_name" content="NoviceMo&#39;s Blog">
+<meta property="og:description" content="title: spring-security使用总结date: 2020-10-15categories: spring-securityauthor: NoviceMotags:    -spring-securitycover_picture: images/banner.jpg  spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-10-15T07:32:28.297Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NoviceMo&#39;s Blog">
+<meta name="twitter:description" content="title: spring-security使用总结date: 2020-10-15categories: spring-securityauthor: NoviceMotags:    -spring-securitycover_picture: images/banner.jpg  spring-security使用总结spring-security的使用步骤： 导入相关的maven依赖 创">
+  
+  
+    <link rel="icon" href="/favicon.icon">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NoviceMo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NoviceMo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个喜欢学习技术的博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/NoviceMo">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="QQ" target="_blank" href="tencent://message/?uin=577028748&Site=&Menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-spring-security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <hr>
+<p>title: spring-security使用总结<br>date: 2020-10-15<br>categories: spring-security<br>author: NoviceMo<br>tags:<br>    -spring-security<br>cover_picture: images/banner.jpg</p>
+<hr>
+<h1 id="spring-security使用总结"><a href="#spring-security使用总结" class="headerlink" title="spring-security使用总结"></a>spring-security使用总结</h1><h2 id="spring-security的使用步骤："><a href="#spring-security的使用步骤：" class="headerlink" title="spring-security的使用步骤："></a>spring-security的使用步骤：</h2><ol>
+<li>导入相关的maven依赖</li>
+<li>创建spring-security.xml文件，编写相关代码</li>
+<li>在web.xml中配置过滤器：DelegatingFilterProxy，配置监听器加载spring-security.xml文件。（一般和ApplicationContext.xml使用同一个监听器加载）</li>
+</ol>
+<h2 id="spring-security的使用具体配置"><a href="#spring-security的使用具体配置" class="headerlink" title="spring-security的使用具体配置"></a>spring-security的使用具体配置</h2><h3 id="导入的maven依赖"><a href="#导入的maven依赖" class="headerlink" title="导入的maven依赖"></a>导入的maven依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">       &lt;spring.security.version&gt;5.0.1.RELEASE&lt;/spring.security.version&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;$&#123;spring.security.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spring-security-config&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;$&#123;spring.security.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spring-security-core&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;$&#123;spring.security.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spring-security-taglibs&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;$&#123;spring.security.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="spring-security相关配置"><a href="#spring-security相关配置" class="headerlink" title="spring-security相关配置"></a>spring-security相关配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. 配置不拦截的资源</span><br><span class="line">&lt;security:http pattern=<span class="string">"/login.jsp"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">&lt;security:http pattern=<span class="string">"/failer.jsp"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">&lt;security:http pattern=<span class="string">"/css/**"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">&lt;security:http pattern=<span class="string">"/img/**"</span> security=<span class="string">"none"</span>/&gt;</span><br><span class="line">&lt;security:http pattern=<span class="string">"/plugins/**"</span> security=<span class="string">"none"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>2. 配置是否使用框架提供的登录界面，是否使用spring el表达式</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:http auto-config=&quot;false&quot; use-expressions=&quot;true&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>3. 配置拦截规则和系统访问权限（登录时验证）</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:intercept-url pattern=<span class="string">"/**"</span> access=<span class="string">"hasAnyRole('ROLE_USER','ROLE_ADMIN')"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>4. 配置登录跳转具体页面
+     login-page 登录页面
+     login-procession-url 点击登录时提交表单的路径
+     username-parameter 登录表单上用户名的name属性
+     password-parameter 登录表单上密码的name属性
+     authentication-failure-url 权限不足时跳转的页面
+     default-target-url 登录成功后跳转的页面，必须和alwaysuse-default-target一起使用</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:form-login login-page=<span class="string">"/login.jsp"</span> login-processing-url=<span class="string">"/login.do"</span></span><br><span class="line">                         username-parameter=<span class="string">"username"</span> password-parameter=<span class="string">"password"</span></span><br><span class="line">                         authentication-failure-url=<span class="string">"/failer.jsp"</span></span><br><span class="line">                         <span class="keyword">default</span>-target-url=<span class="string">"/pages/main.jsp"</span></span><br><span class="line">                         always-use-<span class="keyword">default</span>-target=<span class="string">"true"</span></span><br><span class="line">                         /&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>5. 配置注销路径，注销后跳转的页面</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:logout logout-url=<span class="string">"/logout.do"</span> logout-success-url=<span class="string">"/login.jsp"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>6.1 配置登录需要的用户信息</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:authentication-manager&gt;</span><br><span class="line">&lt;security:authentication-provider&gt;</span><br><span class="line">&lt;security:user-service&gt;</span><br><span class="line">&lt;security:user name=<span class="string">"user"</span> password=<span class="string">"&#123;noop&#125;user"</span></span><br><span class="line">authorities=<span class="string">"ROLE_USER"</span> /&gt;</span><br><span class="line">&lt;security:user name=<span class="string">"admin"</span> password=<span class="string">"&#123;noop&#125;admin"</span></span><br><span class="line">authorities=<span class="string">"ROLE_ADMIN"</span> /&gt;</span><br><span class="line">&lt;/security:user-service&gt;</span><br><span class="line">&lt;/security:authentication-provider&gt;</span><br><span class="line">&lt;/security:authentication-manager&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>6.2.1 配置数据库用户认证
+    user-service-ref配置UserServiceImpl，UserServiceImpl实现接口IUserDao，而IUserDao继承了UserDetailsService接口，所以需要在UserServiceImpl实现UserDetailsService提供的loadUserByUsername(String username) 方法</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:authentication-manager&gt;</span><br><span class="line">&lt;security:authentication-provider user-service-ref=<span class="string">"userService"</span>&gt;</span><br><span class="line">&lt;!-- 配置加密的方式</span><br><span class="line">&lt;security:password-encoder ref=<span class="string">"passwordEncoder"</span>/&gt;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;/security:authentication-provider&gt;</span><br><span class="line">&lt;/security:authentication-manager&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>6.2.2 实现loadUserByUsername(String username)方法
+        将查询出来的角色名都添加到authority中，将用户名、密码和状态等参数传递给User（这个User是security提供的，并不是自己的实体类）</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> UserDetails <span class="title">loadUserByUsername</span><span class="params">(String username)</span> <span class="keyword">throws</span> UsernameNotFoundException </span>&#123;</span><br><span class="line">    UserInfo userInfo = userDao.findUserByUsername(username);</span><br><span class="line">    List&lt;Role&gt; roles = userInfo.getRoles();</span><br><span class="line">    List&lt;SimpleGrantedAuthority&gt; authority = getAuthority(roles);</span><br><span class="line">    User user = <span class="keyword">new</span> User(userInfo.getUsername(),userInfo.getPassword(),userInfo.getStatus()==<span class="number">0</span>?<span class="keyword">false</span>:<span class="keyword">true</span>,<span class="keyword">true</span>,<span class="keyword">true</span>,<span class="keyword">true</span>,authority);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;SimpleGrantedAuthority&gt; <span class="title">getAuthority</span><span class="params">(List&lt;Role&gt; roles)</span></span>&#123;</span><br><span class="line">    List&lt;SimpleGrantedAuthority&gt; authorityList = <span class="keyword">new</span> ArrayList&lt;SimpleGrantedAuthority&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Role role : roles)&#123;</span><br><span class="line">        authorityList.add(<span class="keyword">new</span> SimpleGrantedAuthority(<span class="string">"ROLE_"</span>+role.getRoleName()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> authorityList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>7. 三种注解的使用
+    1. 三种注解默认是关闭的，需要开启</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;security:global-method-security jsr250-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security secured-annotations=<span class="string">"enabled"</span>/&gt;</span><br><span class="line">&lt;security:global-method-security pre-post-annotations=<span class="string">"disabled"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>2. JSR-250注解
+    使用在方法之上，也可以用在controller的类上，作用范围为这个类的全部方法
+    @RolesAllowed({&quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot;})表示拥有ROLE_ADMIN或ROLE_USER任意一种即可访问
+    @PermitAll允许所有的角色访问
+    @DenyAll拒绝所有角色访问
+3. 支持表达式的注解
+    @PreAuthorize 在方法调用之前,基于表达式的计算结果来限制对方法的访问</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">            示例：</span><br><span class="line">            <span class="meta">@PreAuthorize</span>(<span class="string">"#userId == authentication.principal.userId or hasAuthority(‘ADMIN’)"</span>)</span><br><span class="line">            <span class="function"><span class="keyword">void</span> <span class="title">changePassword</span><span class="params">(@P(<span class="string">"userId"</span>)</span> <span class="keyword">long</span> userId )</span>&#123; &#125;</span><br><span class="line">            这里表示在changePassword方法执行之前，判断方法参数userId的值是否等于principal中保存的当前用户的</span><br><span class="line">            userId，或者当前用户是否具有ROLE_ADMIN权限，两种符合其一，就可以访问该方法。</span><br><span class="line">```        </span><br><span class="line">             <span class="meta">@PostAuthorize</span> 允许方法调用,但是如果表达式计算结果为<span class="keyword">false</span>,将抛出一个安全性异常</span><br><span class="line">```java</span><br><span class="line">            示例：</span><br><span class="line">            <span class="meta">@PostAuthorize</span></span><br><span class="line">            <span class="function">User <span class="title">getUser</span><span class="params">(<span class="string">"returnObject.userId == authentication.principal.userId or</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="string">            hasPermission(returnObject, 'ADMIN')"</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<pre><code>@PostFilter 允许方法调用,但必须按照表达式来过滤方法的结果
+@PreFilter 允许方法调用,但必须在进入方法之前过滤输入值</code></pre><hr>
+<pre><code>4. @Secured注解
+@Secured注解标注的方法进行权限控制的支持，其值默认为disabled。
+在方法上面配置@Secured(&quot;ROLE_ADMIN&quot;)和RolesAllowed有些类似
+
+5. 页面标签控制权限
+        有权限才可以显示标签
+        &lt;security:authorize access=&quot;hasRole(&apos;ROLE_USER&apos;)&quot;&gt;
+        &lt;li id=&quot;system-setting&quot;&gt;&lt;a
+            href=&quot;${pageContext.request.contextPath}/user/findAll.do&quot;&gt; &lt;i
+                class=&quot;fa fa-circle-o&quot;&gt;&lt;/i&gt; 用户管理
+        &lt;/a&gt;&lt;/li&gt;
+        &lt;/security:authorize&gt;
+
+        获取已经登录的用户信息（这里获取的是用户名）
+    &lt;p&gt;
+        &lt;security:authentication property=&quot;principal.username&quot;&gt;&lt;/security:authentication&gt;
+    &lt;/p&gt;</code></pre>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年10月15日 15:32</p>
+        <p>原始链接： <a class="post-url" href="/2020/10/15/spring-security/" title="">/2020/10/15/spring-security/</a></p>
+        <footer>
+            <a href="">
+                <img src="/images/logo.png" alt="NoviceMo">
+                NoviceMo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=/2020/10/15/spring-security/&title=NoviceMo's Blog&pic=images/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=/2020/10/15/spring-security/&title=NoviceMo's Blog&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=/2020/10/15/spring-security/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=NoviceMo's Blog&url=/2020/10/15/spring-security/&via=" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=/2020/10/15/spring-security/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=/2020/10/15/spring-security/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#spring-security使用总结"><span class="post-toc-text">spring-security使用总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#spring-security的使用步骤："><span class="post-toc-text">spring-security的使用步骤：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#spring-security的使用具体配置"><span class="post-toc-text">spring-security的使用具体配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导入的maven依赖"><span class="post-toc-text">导入的maven依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spring-security相关配置"><span class="post-toc-text">spring-security相关配置</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/29/后缀表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">后缀表达式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 NoviceMo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/First/">First</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Mybatis/">Mybatis</a><a class="category-link" href="/categories/el/">el</a><a class="category-link" href="/categories/jsp/">jsp</a><a class="category-link" href="/categories/maven/">maven</a><a class="category-link" href="/categories/mybatis/">mybatis</a><a class="category-link" href="/categories/springmvc/">springmvc</a><a class="category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="category-link" href="/categories/计算机服务/">计算机服务</a><a class="category-link" href="/categories/面向切面编程/">面向切面编程</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/mybatis-动态sql/" style="font-size: 10px;">-mybatis -动态sql</a> <a href="/tags/springmvc/" style="font-size: 10px;">-springmvc</a> <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/计算机服务/" style="font-size: 10px;">计算机服务</a> <a href="/tags/面向切面编程/" style="font-size: 10px;">面向切面编程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/mybatis-动态sql/" style="font-size: 10px;">-mybatis -动态sql</a> <a href="/tags/springmvc/" style="font-size: 10px;">-springmvc</a> <a href="/tags/First/" style="font-size: 10px;">First</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/Mybatis/" style="font-size: 15px;">Mybatis</a> <a href="/tags/SSM/" style="font-size: 15px;">SSM</a> <a href="/tags/Second/" style="font-size: 10px;">Second</a> <a href="/tags/el表达式/" style="font-size: 10px;">el表达式</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/数据结构与算法/" style="font-size: 10px;">数据结构与算法</a> <a href="/tags/框架/" style="font-size: 15px;">框架</a> <a href="/tags/计算机服务/" style="font-size: 10px;">计算机服务</a> <a href="/tags/面向切面编程/" style="font-size: 10px;">面向切面编程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
